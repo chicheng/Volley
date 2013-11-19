@@ -241,6 +241,9 @@ public class BasicNetwork implements Network {
     private static Map<String, String> convertHeaders(Header[] headers) {
         Map<String, String> result = new HashMap<String, String>();
         for (int i = 0; i < headers.length; i++) {
+        	if ( headers[i].getName().equalsIgnoreCase("Set-Cookie") && ! headers[i].getValue().startsWith("sessionid=") ) {
+				continue ;
+			}
             result.put(headers[i].getName(), headers[i].getValue());
         }
         return result;
