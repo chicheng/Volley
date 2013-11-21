@@ -16,8 +16,6 @@
 
 package com.android.volley.toolbox;
 
-import android.util.Log;
-
 import com.android.volley.Cache;
 import com.android.volley.NetworkResponse;
 
