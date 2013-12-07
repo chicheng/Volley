@@ -33,7 +33,7 @@ import android.graphics.BitmapFactory;
  */
 public class ImageRequest extends Request<Bitmap> {
     /** Socket timeout in milliseconds for image requests */
-    private static final int IMAGE_TIMEOUT_MS = 1000;
+    private static final int IMAGE_TIMEOUT_MS = 20000;
 
     /** Default number of retries for image requests */
     private static final int IMAGE_MAX_RETRIES = 2;
