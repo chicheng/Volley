@@ -62,7 +62,7 @@ public class RequestFuture<T> implements Future<T>, Response.Listener<T>,
         return new RequestFuture<E>();
     }
 
-    private RequestFuture() {}
+    protected RequestFuture() {}
 
     public void setRequest(Request<?> request) {
         mRequest = request;
