@@ -98,7 +98,8 @@ public class BasicNetwork implements Network {
                 // Handle cache validation.
                 if (statusCode == HttpStatus.SC_NOT_MODIFIED) {
                     return new NetworkResponse(HttpStatus.SC_NOT_MODIFIED,
-                            request.getCacheEntry().data, responseHeaders, true);
+                            request.getCacheEntry() == null ? null : request.getCacheEntry().data,
+                            responseHeaders, true);
                 }
 
                 // Some responses such as 204s do not have content.  We must check.
@@ -114,7 +115,7 @@ public class BasicNetwork implements Network {
                 long requestLifetime = SystemClock.elapsedRealtime() - requestStart;
                 logSlowRequests(requestLifetime, request, responseContents, statusLine);
 
-                if (statusCode != HttpStatus.SC_OK && statusCode != HttpStatus.SC_NO_CONTENT) {
+                if (statusCode < 200 || statusCode > 299) {
                     throw new IOException();
                 }
                 return new NetworkResponse(statusCode, responseContents, responseHeaders, false);
