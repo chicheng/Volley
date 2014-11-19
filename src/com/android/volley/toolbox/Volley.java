@@ -21,7 +21,7 @@ import android.os.Build;
 
 import com.android.volley.Network;
 import com.android.volley.RequestQueue;
-import com.android.volley.compat.DisableSSLv3SecureSocketFactory;
+import com.android.volley.compat.DisableSSLv3SSLSocketFactory;
 
 import java.io.File;
 
@@ -42,7 +42,7 @@ public class Volley {
 
         if (stack == null) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
-				stack = new HurlStack(null, new DisableSSLv3SecureSocketFactory());
+				stack = new HurlStack(null, new DisableSSLv3SSLSocketFactory());
 			} else {
 				stack = new HurlStack();
 			}

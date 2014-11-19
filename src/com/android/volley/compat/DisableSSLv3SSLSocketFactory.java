@@ -9,11 +9,11 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
-public class DisableSSLv3SecureSocketFactory extends SSLSocketFactory {
+public class DisableSSLv3SSLSocketFactory extends SSLSocketFactory {
 	
 	private final SSLSocketFactory delegate;
 	
-	public DisableSSLv3SecureSocketFactory() {
+	public DisableSSLv3SSLSocketFactory() {
 		this.delegate = HttpsURLConnection.getDefaultSSLSocketFactory();
 	}
 	
